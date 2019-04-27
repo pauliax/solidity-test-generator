@@ -14,5 +14,8 @@
     "program testing"
   ],
   "author": "Paulius",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "abi-decoder": "^1.2.0"
+  }
 }
