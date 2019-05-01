@@ -21,15 +21,37 @@ processFileContents = function (jsonFile) {
           const decodedData = decoder.decode(calldata);
 
           if (decodedData !== undefined) {
+            decodedData['caller'] = caller;
+            decodedData['value'] = value;
             decodedTxs.push(decodedData);
           }
         }
       });
 
-      console.log('Decoded txs array: ' + JSON.stringify(decodedTxs));
+      createTestCase(opcode, decodedTxs);
     });
   } catch (err) {
     console.error(err);
+  }
+}
+
+createTestCase = function (opcode, txs) {
+  console.log("\n ***** \n");
+  console.log('Opcode: ' + JSON.stringify(opcode));
+  console.log('Decoded txs array: ' + JSON.stringify(txs));
+
+  switch (opcode) {
+    case 'RETURN':
+      console.log('RETURN opcode');
+      break;
+    case 'REVERT':
+      console.log('REVERT opcode');
+      break;
+    case 'STOP':
+      console.log('STOP opcode');
+      break;
+    default:
+      console.error('Unknown opcode');
   }
 }
 
