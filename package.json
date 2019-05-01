@@ -16,6 +16,7 @@
   "author": "Paulius",
   "license": "ISC",
   "dependencies": {
-    "abi-decoder": "^1.2.0"
+    "abi-decoder": "^1.2.0",
+    "load-json-file": "^6.0.0"
   }
 }

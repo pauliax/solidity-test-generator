@@ -1,28 +1,24 @@
 const fs = require('fs');
 const abiDecoder = require('abi-decoder');
 const contractABI = require('../data/abi.json');
+const loadJsonFile = require('load-json-file');
 
 decode = function () {
   abiDecoder.addABI(contractABI);
   readFile(processFileContents);
 };
 
-readFile = function (callback) {
-  fs.readFile('data/tx.json', 'utf8', (err, fileContents) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
+readFile = async function (callback) {
+  const jsonFile = await loadJsonFile('data/tx.json');
 
-    callback(fileContents);
-  })
+  if (jsonFile !== undefined) {
+    callback(jsonFile);
+  }
 }
 
-processFileContents = function (fileContents) {
+processFileContents = function (jsonFile) {
   try {
-    const tests = JSON.parse(fileContents);
-
-    tests.forEach(function (txs) {
+    jsonFile.forEach(function (txs) {
       Object.keys(txs).forEach(function (key) {
         const calldata = txs[key].calldata;
 
