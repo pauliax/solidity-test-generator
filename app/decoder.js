@@ -1,20 +1,10 @@
-const fs = require('fs');
 const abiDecoder = require('abi-decoder');
 const contractABI = require('../data/abi.json');
-const loadJsonFile = require('load-json-file');
 
-decode = function () {
+decode = function (fileContents) {
   abiDecoder.addABI(contractABI);
-  readFile(processFileContents);
+  processFileContents(fileContents);
 };
-
-readFile = async function (callback) {
-  const jsonFile = await loadJsonFile('data/tx.json');
-
-  if (jsonFile !== undefined) {
-    callback(jsonFile);
-  }
-}
 
 processFileContents = function (jsonFile) {
   try {
