@@ -1,12 +1,12 @@
 const config = require('config');
 const loadJsonFile = require('load-json-file');
-const decoder = require('./app/decoder');
+const generator = require('./app/generator');
 
 const FILENAME_TXS = config.get('input.txs');
 
 run = async function () {
   const fileContents = await loadJsonFile(FILENAME_TXS);
-  decoder.decode(fileContents);
+  generator.generate(fileContents);
 }
 
 run();
