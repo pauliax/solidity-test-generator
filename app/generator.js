@@ -37,6 +37,10 @@ processFileContents = function (jsonFile) {
 }
 
 createTestCase = function (opcode, txs) {
+  if (txs === undefined || txs.length == 0) {
+    return;
+  }
+
   console.log("\n ***** \n");
   console.log('Opcode: ' + JSON.stringify(opcode));
   console.log('Decoded txs array: ' + JSON.stringify(txs));
@@ -46,12 +50,7 @@ createTestCase = function (opcode, txs) {
       console.log('RETURN opcode');
       break;
     case 'REVERT':
-      console.log('REVERT opcode');
-      const greeting = templates.revertAssert({
-        function: "equals",
-        params: "0, 0"
-      });
-      console.log(greeting);
+      createRevertTestCase(txs);
       break;
     case 'STOP':
       console.log('STOP opcode');
@@ -59,6 +58,26 @@ createTestCase = function (opcode, txs) {
     default:
       console.error('Unknown opcode');
   }
+}
+
+createRevertTestCase = function (txs) {
+  const lastIndex = txs.length - 1;
+  const lastTx = txs[lastIndex];
+  const functionName = lastTx.name;
+
+  let paramsArray = [];
+  lastTx.params.forEach(function (param) {
+    paramsArray.push(param.value);
+  });
+
+  const params = paramsArray.join(", ");
+
+  const revertAssertTemplate = templates.REVERT_ASSERT({
+    function: functionName,
+    params: params
+  });
+
+  console.log(revertAssertTemplate);
 }
 
 module.exports = {
