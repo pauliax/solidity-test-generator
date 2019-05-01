@@ -7,17 +7,26 @@ generate = function (fileContents) {
 processFileContents = function (jsonFile) {
   try {
     jsonFile.forEach(function (txs) {
+      const opcode = txs['opcode'];
+      const decodedTxs = [];
+
       Object.keys(txs).forEach(function (key) {
-        const calldata = txs[key].calldata;
+        const tx = txs[key];
+
+        const caller = tx.caller;
+        const value = tx.call_value;
+        const calldata = tx.calldata;
 
         if (calldata !== undefined) {
-          decoder.decode(calldata).then(decodedData => {
-            if (decodedData !== undefined) {
-              console.log(decodedData);
-            }
-          });
+          const decodedData = decoder.decode(calldata);
+
+          if (decodedData !== undefined) {
+            decodedTxs.push(decodedData);
+          }
         }
-      })
+      });
+
+      console.log('Decoded txs array: ' + JSON.stringify(decodedTxs));
     });
   } catch (err) {
     console.error(err);

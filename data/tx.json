@@ -1,45 +1,56 @@
-[{}, {}, {
+[{
+  "opcode": "REVERT"
+}, {
+  "opcode": "RETURN"
+}, {
   "2": {
     "calldata": "0x",
     "call_value": "0x1",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "REVERT"
 }, {
   "2": {
     "calldata": "0x",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "REVERT"
 }, {
   "2": {
     "calldata": "0x01010101",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "REVERT"
 }, {
   "2": {
     "calldata": "0x47b5cd81",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "REVERT"
 }, {
   "2": {
     "calldata": "0xd09de08a",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "STOP"
 }, {
   "2": {
     "calldata": "0x67e919b6",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "RETURN"
 }, {
   "2": {
     "calldata": "0x47b5cd8181818181818181818181818181818181818181818181818181818181818181818181818181818181818181818181818181818181818181818181818181818181",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "REVERT"
 }, {
   "2": {
     "calldata": "0xd09de08a",
@@ -50,7 +61,8 @@
     "calldata": "0x",
     "call_value": "0x1",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "REVERT"
 }, {
   "2": {
     "calldata": "0xd09de08a",
@@ -61,7 +73,8 @@
     "calldata": "0x",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "REVERT"
 }, {
   "2": {
     "calldata": "0xd09de08a",
@@ -72,7 +85,8 @@
     "calldata": "0x01010101",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "REVERT"
 }, {
   "2": {
     "calldata": "0xd09de08a",
@@ -83,7 +97,8 @@
     "calldata": "0x47b5cd81",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "REVERT"
 }, {
   "2": {
     "calldata": "0xd09de08a",
@@ -94,7 +109,8 @@
     "calldata": "0xd09de08a",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "STOP"
 }, {
   "2": {
     "calldata": "0xd09de08a",
@@ -105,7 +121,8 @@
     "calldata": "0x67e919b6",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "RETURN"
 }, {
   "2": {
     "calldata": "0xd09de08a",
@@ -113,10 +130,11 @@
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
   },
   "3": {
-    "calldata": "0x47b5cd8104010404800220400001080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "calldata": "0x47b5cd8104408000400220401010200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "RETURN"
 }, {
   "2": {
     "calldata": "0xd09de08a",
@@ -127,5 +145,6 @@
     "calldata": "0x47b5cd8100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "call_value": "0x0",
     "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-  }
+  },
+  "opcode": "RETURN"
 }]

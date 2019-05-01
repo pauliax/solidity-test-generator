@@ -4,8 +4,8 @@ const abiDecoder = require('abi-decoder');
 
 const FILENAME_ABI = config.get('input.abi');
 
-decode = async function (calldata) {
-  const contractABI = await loadJsonFile(FILENAME_ABI);
+decode = function (calldata) {
+  const contractABI = loadJsonFile.sync(FILENAME_ABI);
 
   abiDecoder.addABI(contractABI);
 
