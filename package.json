@@ -18,6 +18,7 @@
   "dependencies": {
     "abi-decoder": "^1.2.0",
     "config": "^3.1.0",
-    "load-json-file": "^6.0.0"
+    "load-json-file": "^6.0.0",
+    "string-template": "^1.0.0"
   }
 }

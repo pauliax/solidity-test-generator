@@ -1,4 +1,5 @@
 const decoder = require('./decoder');
+const templates = require("./templates");
 
 generate = function (fileContents) {
   processFileContents(fileContents);
@@ -46,6 +47,11 @@ createTestCase = function (opcode, txs) {
       break;
     case 'REVERT':
       console.log('REVERT opcode');
+      const greeting = templates.revertAssert({
+        function: "equals",
+        params: "0, 0"
+      });
+      console.log(greeting);
       break;
     case 'STOP':
       console.log('STOP opcode');
