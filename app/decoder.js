@@ -1,7 +1,11 @@
+const config = require('config');
+const loadJsonFile = require('load-json-file');
 const abiDecoder = require('abi-decoder');
-const contractABI = require('../data/abi.json');
 
-decode = function (fileContents) {
+const FILENAME_ABI = config.get('input.abi');
+
+decode = async function (fileContents) {
+  const contractABI = await loadJsonFile(FILENAME_ABI);
   abiDecoder.addABI(contractABI);
   processFileContents(fileContents);
 };
