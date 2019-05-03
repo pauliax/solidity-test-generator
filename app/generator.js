@@ -11,7 +11,7 @@ processFileContents = function (jsonFile) {
   try {
     jsonFile.forEach(function (txs) {
       const opcode = txs['opcode'];
-      const decodedTxs = [];
+      let decodedTxs = [];
 
       Object.keys(txs).forEach(function (key) {
         const tx = txs[key];
@@ -27,6 +27,10 @@ processFileContents = function (jsonFile) {
             decodedData['caller'] = caller;
             decodedData['value'] = value;
             decodedTxs.push(decodedData);
+          } else {
+            console.log("Cannot decode: " + JSON.stringify(tx));
+            decodedTxs = [];
+            return;
           }
         }
       });
