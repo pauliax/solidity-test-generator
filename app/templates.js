@@ -10,8 +10,11 @@ const REVERT_ASSERT = compile(`  await truffleAssert.fails(
 
 const TEST_CASE_BOTTOM = compile(`});`);
 
+const FUNCTION_INVOKE = compile(`  await instance.{function}({params});`);
+
 module.exports = {
   REVERT_HEADER,
   REVERT_ASSERT,
-  TEST_CASE_BOTTOM
+  TEST_CASE_BOTTOM,
+  FUNCTION_INVOKE
 }

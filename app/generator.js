@@ -28,7 +28,6 @@ processFileContents = function (jsonFile) {
             decodedData['value'] = value;
             decodedTxs.push(decodedData);
           } else {
-            console.log("Cannot decode: " + JSON.stringify(tx));
             decodedTxs = [];
             return;
           }
@@ -77,23 +76,34 @@ createRevertTestCase = function (txs) {
   testCaseCounter++;
   testCase.push(revertHeaderemplate);
 
-  const lastIndex = txs.length - 1;
-  const lastTx = txs[lastIndex];
-  const functionName = lastTx.name;
+  txs.forEach(function (tx, index, array) {
+    const functionName = tx.name;
 
-  let paramsArray = [];
-  lastTx.params.forEach(function (param) {
-    paramsArray.push(param.value);
+    let paramsArray = [];
+    tx.params.forEach(function (param) {
+      paramsArray.push(param.value);
+    });
+
+    const params = paramsArray.join(", ");
+
+    if (index === array.length - 1) {
+      const revertAssertTemplate = templates.REVERT_ASSERT({
+        function: functionName,
+        params: params
+      });
+
+      testCase.push(revertAssertTemplate);
+    } else {
+      // console.log("Not the last tx: " + JSON.stringify(tx));
+
+      const functionInvokeTemplate = templates.FUNCTION_INVOKE({
+        function: functionName,
+        params: params
+      });
+
+      testCase.push(functionInvokeTemplate);
+    }
   });
-
-  const params = paramsArray.join(", ");
-
-  const revertAssertTemplate = templates.REVERT_ASSERT({
-    function: functionName,
-    params: params
-  });
-
-  testCase.push(revertAssertTemplate);
 
   const testCaseBottom = templates.TEST_CASE_BOTTOM();
 
