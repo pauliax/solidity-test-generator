@@ -1,6 +1,8 @@
 const decoder = require('./decoder');
 const templates = require("./templates");
 
+let testCaseCounter = 1;
+
 generate = function (fileContents) {
   processFileContents(fileContents);
 }
@@ -61,6 +63,16 @@ createTestCase = function (opcode, txs) {
 }
 
 createRevertTestCase = function (txs) {
+  let testCase = [];
+
+  const revertHeaderemplate = templates.REVERT_HEADER({
+    testTitle: `test${testCaseCounter}: should revert`,
+    contractName: "Example"
+  });
+
+  testCaseCounter++;
+  testCase.push(revertHeaderemplate);
+
   const lastIndex = txs.length - 1;
   const lastTx = txs[lastIndex];
   const functionName = lastTx.name;
@@ -77,7 +89,15 @@ createRevertTestCase = function (txs) {
     params: params
   });
 
-  console.log(revertAssertTemplate);
+  testCase.push(revertAssertTemplate);
+
+  const testCaseBottom = templates.TEST_CASE_BOTTOM();
+
+  testCase.push(testCaseBottom);
+
+  const finalTestCase = testCase.join("\n");
+
+  console.log(finalTestCase);
 }
 
 module.exports = {
