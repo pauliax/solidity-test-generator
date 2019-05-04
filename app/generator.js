@@ -7,15 +7,17 @@ const opcodes = {
   REVERT: 'REVERT'
 }
 
-const contractName = "Example2";
+let contractName;
 let testCaseCounter = 1;
 
 generate = function (fileContents) {
+  contractName = fileContents['contract'];
+
   const testFileHeader = templates.TEST_FILE_HEADER({
     contractName: contractName
   });
 
-  const testCasesArray = processFileContents(fileContents);
+  const testCasesArray = processFileContents(fileContents['txs']);
   const testCases = testCasesArray.join("\n\n");
 
   const testFileBottom = templates.TEST_FILE_BOTTOM();
