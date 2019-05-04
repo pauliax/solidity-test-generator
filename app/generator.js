@@ -1,6 +1,12 @@
 const decoder = require('./decoder');
 const templates = require("./templates");
 
+const opcodes = {
+  RETURN: 'RETURN',
+  STOP: 'STOP',
+  REVERT: 'REVERT'
+}
+
 let testCaseCounter = 1;
 
 generate = function (fileContents) {
@@ -11,6 +17,7 @@ processFileContents = function (jsonFile) {
   try {
     jsonFile.forEach(function (txs) {
       const opcode = txs['opcode'];
+
       let decodedTxs = [];
 
       Object.keys(txs).forEach(function (key) {
@@ -47,34 +54,29 @@ createTestCase = function (opcode, txs) {
   }
 
   console.log("\n ***** \n");
-  console.log('Opcode: ' + JSON.stringify(opcode));
+  console.log('OPCODE: ' + JSON.stringify(opcode));
   console.log('Decoded txs array: ' + JSON.stringify(txs));
 
   switch (opcode) {
     case 'RETURN':
-      console.log('RETURN opcode');
+      createTest(opcodes.RETURN, txs);
       break;
     case 'REVERT':
-      createRevertTestCase(txs);
+      createTest(opcodes.REVERT, txs);
       break;
     case 'STOP':
-      console.log('STOP opcode');
+      createTest(opcodes.STOP, txs);
       break;
     default:
-      console.error('Unknown opcode');
+      throw new Error('Unknown opcode');
   }
 }
 
-createRevertTestCase = function (txs) {
+createTest = function (opcode, txs) {
   let testCase = [];
 
-  const revertHeaderemplate = templates.REVERT_HEADER({
-    testTitle: `test${testCaseCounter}: should revert`,
-    contractName: "Example"
-  });
-
-  testCaseCounter++;
-  testCase.push(revertHeaderemplate);
+  const testCaseHeader = getTestCaseHeader(opcode);
+  testCase.push(testCaseHeader);
 
   txs.forEach(function (tx, index, array) {
     const functionName = tx.name;
@@ -87,15 +89,9 @@ createRevertTestCase = function (txs) {
     const params = paramsArray.join(", ");
 
     if (index === array.length - 1) {
-      const revertAssertTemplate = templates.REVERT_ASSERT({
-        function: functionName,
-        params: params
-      });
-
-      testCase.push(revertAssertTemplate);
+      const assertTemplate = getTestCaseAssert(opcode, functionName, params);
+      testCase.push(assertTemplate);
     } else {
-      // console.log("Not the last tx: " + JSON.stringify(tx));
-
       const functionInvokeTemplate = templates.FUNCTION_INVOKE({
         function: functionName,
         params: params
@@ -112,6 +108,54 @@ createRevertTestCase = function (txs) {
   const finalTestCase = testCase.join("\n");
 
   console.log(finalTestCase);
+}
+
+getTestCaseHeader = function (opcode) {
+  const contractName = "Example";
+  let testTitle;
+
+  switch (opcode) {
+    case opcodes.RETURN:
+      testTitle = `test${testCaseCounter}: should return`;
+      break;
+    case opcodes.REVERT:
+      testTitle = `test${testCaseCounter}: should revert`;
+      break;
+    case opcodes.STOP:
+      testTitle = `test${testCaseCounter}: should pass`;
+      break;
+    default:
+      throw new Error('Unknown opcode');
+  }
+
+  testCaseCounter++;
+
+  return templates.TEST_CASE_HEADER({
+    testTitle: testTitle,
+    contractName: contractName
+  });
+}
+
+getTestCaseAssert = function (opcode, functionName, params) {
+  switch (opcode) {
+    case opcodes.RETURN:
+      return templates.FUNCTION_PASSES({
+        function: functionName,
+        params: params
+      });
+    case opcodes.REVERT:
+      return templates.REVERT_ASSERT({
+        function: functionName,
+        params: params
+      });
+    case opcodes.STOP:
+      return templates.FUNCTION_PASSES({
+        function: functionName,
+        params: params
+      });
+    default:
+      throw new Error('Unknown opcode');
+  }
 }
 
 module.exports = {
