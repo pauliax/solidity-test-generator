@@ -25,7 +25,7 @@ generate = function (fileContents) {
     .concat('\n')
     .concat(testFileBottom);
 
-  console.log(finalTestFile);
+  return finalTestFile;
 }
 
 processFileContents = function (jsonFile) {
@@ -106,7 +106,11 @@ createTest = function (opcode, txs) {
       paramsArray.push(param.value);
     });
 
-    const params = paramsArray.join(", ");
+    let params = paramsArray.join(", ");
+
+    if (params !== undefined && params.length > 0) {
+      params = params.concat(", ");
+    }
 
     if (index === array.length - 1) {
       const assertTemplate = getTestCaseAssert(opcode, functionName, params);
@@ -114,7 +118,8 @@ createTest = function (opcode, txs) {
     } else {
       const functionInvokeTemplate = templates.FUNCTION_INVOKE({
         function: functionName,
-        params: params
+        params: params,
+        value: 0
       });
 
       testCase.push(functionInvokeTemplate);
@@ -160,17 +165,20 @@ getTestCaseAssert = function (opcode, functionName, params) {
     case opcodes.RETURN:
       return templates.FUNCTION_PASSES({
         function: functionName,
-        params: params
+        params: params,
+        value: 0
       });
     case opcodes.REVERT:
       return templates.REVERT_ASSERT({
         function: functionName,
-        params: params
+        params: params,
+        value: 0
       });
     case opcodes.STOP:
       return templates.FUNCTION_PASSES({
         function: functionName,
-        params: params
+        params: params,
+        value: 0
       });
     default:
       throw new Error('Unknown opcode');

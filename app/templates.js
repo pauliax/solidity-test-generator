@@ -4,16 +4,22 @@ const TEST_CASE_HEADER = compile(`  it("{testTitle}", async () => {
     let instance = await {contractName}.deployed();`);
 
 const REVERT_ASSERT = compile(`    await truffleAssert.fails(
-      instance.{function}({params}),
+      instance.{function}({params}{
+        value: {value}
+      }),
       truffleAssert.ErrorType.REVERT
     );`);
 
 const TEST_CASE_BOTTOM = compile(`  });`);
 
-const FUNCTION_INVOKE = compile(`    await instance.{function}({params});`);
+const FUNCTION_INVOKE = compile(`    await instance.{function}({params}{
+      value: {value}
+    });`);
 
 const FUNCTION_PASSES = compile(`    await truffleAssert.passes(
-      instance.{function}({params})
+      instance.{function}({params}{ 
+        value: {value}
+      })
     );`);
 
 const TEST_FILE_HEADER = compile(`const truffleAssert = require('truffle-assertions');
