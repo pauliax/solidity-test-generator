@@ -2,5 +2,8 @@
   "input": {
     "abi": "data/abi.json",
     "txs": "data/tx.json"
+  },
+  "output": {
+    "directory": "generated-tests"
   }
 }
