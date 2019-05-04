@@ -7,12 +7,25 @@ const opcodes = {
   REVERT: 'REVERT'
 }
 
+const contractName = "Example2";
 let testCaseCounter = 1;
 
 generate = function (fileContents) {
+  const testFileHeader = templates.TEST_FILE_HEADER({
+    contractName: contractName
+  });
+
   const testCasesArray = processFileContents(fileContents);
   const testCases = testCasesArray.join("\n\n");
-  console.log(testCases);
+
+  const testFileBottom = templates.TEST_FILE_BOTTOM();
+
+  const finalTestFile = testFileHeader.concat('\n')
+    .concat(testCases)
+    .concat('\n')
+    .concat(testFileBottom);
+
+  console.log(finalTestFile);
 }
 
 processFileContents = function (jsonFile) {
@@ -118,7 +131,6 @@ createTest = function (opcode, txs) {
 }
 
 getTestCaseHeader = function (opcode) {
-  const contractName = "Example";
   let testTitle;
 
   switch (opcode) {
