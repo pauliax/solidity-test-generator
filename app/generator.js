@@ -10,11 +10,15 @@ const opcodes = {
 let testCaseCounter = 1;
 
 generate = function (fileContents) {
-  processFileContents(fileContents);
+  const testCasesArray = processFileContents(fileContents);
+  const testCases = testCasesArray.join("\n\n");
+  console.log(testCases);
 }
 
 processFileContents = function (jsonFile) {
   try {
+    let testCases = [];
+
     jsonFile.forEach(function (txs) {
       const opcode = txs['opcode'];
 
@@ -41,8 +45,14 @@ processFileContents = function (jsonFile) {
         }
       });
 
-      createTestCase(opcode, decodedTxs);
+      const testCase = createTestCase(opcode, decodedTxs);
+
+      if (testCase !== undefined) {
+        testCases.push(testCase);
+      }
     });
+
+    return testCases;
   } catch (err) {
     console.error(err);
   }
@@ -53,20 +63,17 @@ createTestCase = function (opcode, txs) {
     return;
   }
 
-  console.log("\n ***** \n");
-  console.log('OPCODE: ' + JSON.stringify(opcode));
-  console.log('Decoded txs array: ' + JSON.stringify(txs));
+  // console.log("\n ***** \n");
+  // console.log('OPCODE: ' + JSON.stringify(opcode));
+  // console.log('Decoded txs array: ' + JSON.stringify(txs));
 
   switch (opcode) {
     case 'RETURN':
-      createTest(opcodes.RETURN, txs);
-      break;
+      return createTest(opcodes.RETURN, txs);
     case 'REVERT':
-      createTest(opcodes.REVERT, txs);
-      break;
+      return createTest(opcodes.REVERT, txs);
     case 'STOP':
-      createTest(opcodes.STOP, txs);
-      break;
+      return createTest(opcodes.STOP, txs);
     default:
       throw new Error('Unknown opcode');
   }
@@ -107,7 +114,7 @@ createTest = function (opcode, txs) {
 
   const finalTestCase = testCase.join("\n");
 
-  console.log(finalTestCase);
+  return finalTestCase;
 }
 
 getTestCaseHeader = function (opcode) {
