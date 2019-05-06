@@ -106,7 +106,14 @@ createTest = function (opcode, txs) {
 
     let paramsArray = [];
     tx.params.forEach(function (param) {
-      paramsArray.push(param.value);
+      let paramValue = param.value;
+      const paramType = param.type;
+
+      if (paramType === 'address' && paramValue === '0x') {
+        paramValue = '0x0';
+      }
+
+      paramsArray.push(paramValue);
     });
 
     let params = paramsArray.join(", ");
