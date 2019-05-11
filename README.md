@@ -53,7 +53,7 @@ npm install -g truffle@4
 * Run Solidity compilator with *--abi* flag on the same smart contract:
 
 ```bash
-solc --abi solidity_examples/test_generation/Example.sol
+solc --abi <PATH_TO_THE_SMART_CONTRACT>
 ```
 
 * Run Solidity test generator:
@@ -61,6 +61,14 @@ solc --abi solidity_examples/test_generation/Example.sol
 ```bash
 node index
 ```
+
+Generated test file is placed in *generated-tests* directory. You need to manually move this file to your Truffle project. Also, do not forget to install *truffle-assertions* package. Run the tests:
+
+```bash
+truffle test
+```
+
+Sometimes generated tests fail so you need to manually review them and fix or comment them out.
 
 ## Limitations
 
