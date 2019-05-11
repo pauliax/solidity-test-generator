@@ -1,0 +1,179 @@
+{
+  "contract": "ERC20",
+  "txs": [{
+    "opcode": "REVERT"
+  }, {
+    "opcode": "RETURN"
+  }, {
+    "2": {
+      "calldata": "0x",
+      "call_value": "0x1",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "REVERT"
+  }, {
+    "2": {
+      "calldata": "0x",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "REVERT"
+  }, {
+    "2": {
+      "calldata": "0x01010101",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "REVERT"
+  }, {
+    "2": {
+      "calldata": "0x27e235e3",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "REVERT"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "REVERT"
+  }, {
+    "2": {
+      "calldata": "0x27e235e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "RETURN"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb01010101010101010101010101010101010101010101010101010101010101010280800210102080800110800101010101010101010101010101010101010101",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "REVERT"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef0000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "RETURN"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb00000000000000000000000001010101010101010101010101010101010101010000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "RETURN"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb00000000000000000000000001010101010101010101010101010101010101010000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "3": {
+      "calldata": "0x",
+      "call_value": "0x1",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "REVERT"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb00000000000000000000000010080401010101010101010101010101010101010000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "3": {
+      "calldata": "0x",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "REVERT"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb00000000000000000000000002082001010101010101010101010101010101010000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "3": {
+      "calldata": "0x08048004",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "REVERT"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb00000000000000000000000000000001010101010101010101000101010101010000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "3": {
+      "calldata": "0x27e235e3",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "REVERT"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb00000000000000000000000001010101010101010101010101010101010101010000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "3": {
+      "calldata": "0xa9059cbb",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "REVERT"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb00000000000000000000000001010101010101010101010101010101010101010000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "3": {
+      "calldata": "0x27e235e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "RETURN"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb00000000000000000000000001010101010101010101010801010101010101010000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "3": {
+      "calldata": "0xa9059cbb80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808020040401",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "REVERT"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb00000000000000000000000001010101010101010101010101010101010101010000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "3": {
+      "calldata": "0xa9059cbb000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef0000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "RETURN"
+  }, {
+    "2": {
+      "calldata": "0xa9059cbb00000000000000000000000001010101010101010101010101010101010101010000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "3": {
+      "calldata": "0xa9059cbb00000000000000000000000020801040040080200840014020104020108002800000000000000000000000000000000000000000000000000000000000000000",
+      "call_value": "0x0",
+      "caller": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    },
+    "opcode": "RETURN"
+  }]
+}
