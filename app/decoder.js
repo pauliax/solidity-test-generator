@@ -12,7 +12,7 @@ decode = function (calldata) {
     const decodedData = abiDecoder.decodeMethod(calldata);
     return decodedData;
   } catch (err) {
-    console.err("Error decoding data.");
+    console.error("Error decoding data.");
     return;
   }
 };
