@@ -8,7 +8,13 @@ const contractABI = loadJsonFile.sync(FILENAME_ABI);
 abiDecoder.addABI(contractABI);
 
 decode = function (calldata) {
-  return abiDecoder.decodeMethod(calldata);
+  try {
+    const decodedData = abiDecoder.decodeMethod(calldata);
+    return decodedData;
+  } catch (err) {
+    console.err("Error decoding data.");
+    return;
+  }
 };
 
 module.exports = {
