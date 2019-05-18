@@ -3,7 +3,7 @@ const Example3 = artifacts.require("Example3");
 
 contract("Example3 test", async accounts => {
   it("test1: should revert", async () => {
-    let instance = await Example3.deployed();
+    let instance = await Example3.new();
     await truffleAssert.fails(
       instance.example({
         value: 0x0
@@ -13,7 +13,7 @@ contract("Example3 test", async accounts => {
   });
 
   it("test2: should revert", async () => {
-    let instance = await Example3.deployed();
+    let instance = await Example3.new();
     await truffleAssert.fails(
       instance.two({
         value: 0x0
@@ -23,7 +23,7 @@ contract("Example3 test", async accounts => {
   });
 
   it("test3: should return", async () => {
-    let instance = await Example3.deployed();
+    let instance = await Example3.new();
     await truffleAssert.passes(
       instance.a({
         value: 0x0
@@ -32,7 +32,7 @@ contract("Example3 test", async accounts => {
   });
 
   it("test4: should pass", async () => {
-    let instance = await Example3.deployed();
+    let instance = await Example3.new();
     await truffleAssert.passes(
       instance.one({
         value: 0x0
@@ -41,7 +41,7 @@ contract("Example3 test", async accounts => {
   });
 
   it("test5: should revert", async () => {
-    let instance = await Example3.deployed();
+    let instance = await Example3.new();
     await instance.one({
       value: 0x0
     });
@@ -54,7 +54,7 @@ contract("Example3 test", async accounts => {
   });
 
   it("test6: should return", async () => {
-    let instance = await Example3.deployed();
+    let instance = await Example3.new();
     await instance.one({
       value: 0x0
     });
@@ -66,7 +66,7 @@ contract("Example3 test", async accounts => {
   });
 
   it("test7: should revert", async () => {
-    let instance = await Example3.deployed();
+    let instance = await Example3.new();
     await instance.one({
       value: 0x0
     });
@@ -79,7 +79,7 @@ contract("Example3 test", async accounts => {
   });
 
   it("test8: should pass", async () => {
-    let instance = await Example3.deployed();
+    let instance = await Example3.new();
     await instance.one({
       value: 0x0
     });

@@ -3,7 +3,7 @@ const Pausable = artifacts.require("Pausable");
 
 contract("Pausable test", async accounts => {
   it("test1: should revert", async () => {
-    let instance = await Pausable.deployed();
+    let instance = await Pausable.new();
     await truffleAssert.fails(
       instance.unpause({
         value: 0x0
@@ -13,7 +13,7 @@ contract("Pausable test", async accounts => {
   });
 
   it("test2: should revert", async () => {
-    let instance = await Pausable.deployed();
+    let instance = await Pausable.new();
     await truffleAssert.fails(
       instance.pause({
         value: 0x0
@@ -23,7 +23,7 @@ contract("Pausable test", async accounts => {
   });
 
   it("test3: should return", async () => {
-    let instance = await Pausable.deployed();
+    let instance = await Pausable.new();
     await truffleAssert.passes(
       instance.paused({
         value: 0x0

@@ -3,7 +3,7 @@ const Voting = artifacts.require("Voting");
 
 contract("Voting test", async accounts => {
   it("test1: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.fails(
       instance.voteFlag(0x0, {
         value: 0x0
@@ -13,7 +13,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test2: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.fails(
       instance.balances(0x0, {
         value: 0x0
@@ -23,7 +23,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test3: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.fails(
       instance.candidateList(0, {
         value: 0x0
@@ -33,7 +33,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test4: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.fails(
       instance.totalVotesFor(0x0, {
         value: 0x0
@@ -43,7 +43,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test5: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.fails(
       instance.voteForCandidate(0x0, {
         value: 0x0
@@ -53,7 +53,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test6: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.fails(
       instance.validCandidate(0x0, {
         value: 0x0
@@ -63,7 +63,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test7: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.fails(
       instance.votesReceived(0x0, {
         value: 0x0
@@ -73,7 +73,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test8: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.balances(0xe3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3, {
         value: 0x0
@@ -82,7 +82,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test9: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.voteFlag(0x2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d, {
         value: 0x0
@@ -91,7 +91,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test10: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.candidateList(0, {
         value: 0x0
@@ -100,7 +100,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test11: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.votesReceived(0x9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f, {
         value: 0x0
@@ -109,7 +109,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test12: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.validCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
         value: 0x0
@@ -118,7 +118,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test13: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.totalVotesFor(0x4100000000000000000000000000000000000000000000000000000000000000, {
         value: 0x0
@@ -127,7 +127,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test14: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.validCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
         value: 0x0
@@ -136,7 +136,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test15: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.totalVotesFor(0x4200000000000000000000000000000000000000000000000000000000000000, {
         value: 0x0
@@ -145,7 +145,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test16: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.validCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
         value: 0x0
@@ -154,7 +154,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test17: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.fails(
       instance.totalVotesFor(0x0840014020020804044010000000040001000800200000800810081020021001, {
         value: 0x0
@@ -164,7 +164,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test18: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.fails(
       instance.voteForCandidate(0x0801204004808010200000020000000002000002200400400810040880040240, {
         value: 0x0
@@ -174,7 +174,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test19: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.validCandidate(0x0840014020020804044010000000040001000800200000800810081020021001, {
         value: 0x0
@@ -183,7 +183,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test20: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.totalVotesFor(0x4300000000000000000000000000000000000000000000000000000000000000, {
         value: 0x0
@@ -192,7 +192,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test21: should pass", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
         value: 0x0
@@ -201,7 +201,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test22: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.getCandidateList({
         value: 0x0
@@ -210,7 +210,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test23: should pass", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.voteForCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
         value: 0x0
@@ -219,7 +219,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test24: should pass", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await truffleAssert.passes(
       instance.voteForCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
         value: 0x0
@@ -228,7 +228,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test25: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -241,7 +241,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test26: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -254,7 +254,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test27: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -267,7 +267,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test28: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -280,7 +280,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test29: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -293,7 +293,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test30: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -306,7 +306,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test31: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -319,7 +319,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test32: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -332,7 +332,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test33: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -345,7 +345,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test34: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -358,7 +358,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test35: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -371,7 +371,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test36: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -384,7 +384,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test37: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -397,7 +397,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test38: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -410,7 +410,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test39: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -423,7 +423,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test40: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -436,7 +436,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test41: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -449,7 +449,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test42: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -462,7 +462,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test43: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -475,7 +475,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test44: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -488,7 +488,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test45: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -501,7 +501,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test46: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -513,7 +513,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test47: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -525,7 +525,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test48: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -537,7 +537,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test49: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -549,7 +549,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test50: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -561,7 +561,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test51: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -573,7 +573,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test52: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -585,7 +585,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test53: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -597,7 +597,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test54: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -609,7 +609,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test55: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -621,7 +621,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test56: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -634,7 +634,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test57: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4200000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -647,7 +647,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test58: should revert", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4300000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });
@@ -660,7 +660,7 @@ contract("Voting test", async accounts => {
   });
 
   it("test59: should return", async () => {
-    let instance = await Voting.deployed();
+    let instance = await Voting.new();
     await instance.voteForCandidate(0x4100000000000000000000000000000000000000000000000000000000000000, {
       value: 0x0
     });

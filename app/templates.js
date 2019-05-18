@@ -1,7 +1,7 @@
 const compile = require("string-template/compile");
 
 const TEST_CASE_HEADER = compile(`  it("{testTitle}", async () => {
-    let instance = await {contractName}.deployed();`);
+    let instance = await {contractName}.new();`);
 
 const REVERT_ASSERT = compile(`    await truffleAssert.fails(
       instance.{function}({params}{
