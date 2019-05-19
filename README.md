@@ -42,6 +42,24 @@ npm install
 npm install -g truffle@4
 ```
 
+* Add truffle-assertions to your Truffle project:
+
+```bash
+npm install truffle-assertions
+```
+
+* If you want to check the code coverage, add solidity-coverage to your Truffle project (https://github.com/sc-forks/solidity-coverage):
+
+```bash
+npm install --save-dev solidity-coverage
+```
+
+You can run solidity-coverage by running this command:
+
+```bash
+./node_modules/.bin/solidity-coverage
+```
+
 ## Run
 
 * Run Mythril Classic on smart contract and place generated *txs.json* file to *data* folder:
